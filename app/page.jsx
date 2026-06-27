@@ -191,7 +191,7 @@ export default function WaitlistPage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-gray-800 text-base">2 weeks</div>
+                  <div className="font-bold text-gray-800 text-base">3 days</div>
                   <div className="text-gray-400 text-xs">Until launch</div>
                 </div>
               </div>
@@ -215,8 +215,8 @@ export default function WaitlistPage() {
                 className="absolute top-4 right-4 w-16 h-16 rounded-full flex flex-col items-center justify-center text-white shadow-lg select-none"
                 style={{ background: "#C94B82" }}
               >
-                <span className="text-lg font-extrabold leading-none">50%</span>
-                <span className="text-[10px] leading-tight font-medium">First Order</span>
+                <span className="text-[11px] font-extrabold leading-tight">Free</span>
+                <span className="text-[10px] leading-tight font-medium">Delivery</span>
               </div>
             </div>
 
