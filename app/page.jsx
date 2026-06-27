@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const AVATARS = [
@@ -50,11 +50,31 @@ const FEATURES = [
   },
 ];
 
+// June 30 2026 at 23:59:59 WAT (Nigeria, UTC+1)
+const LAUNCH_DATE = new Date("2026-06-30T22:59:59Z");
+
+function getTimeLeft() {
+  const diff = Math.max(0, LAUNCH_DATE - Date.now());
+  return {
+    days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours:   Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((diff % (1000 * 60)) / 1000),
+  };
+}
+
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    setTimeLeft(getTimeLeft());
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -180,19 +200,28 @@ export default function WaitlistPage() {
               </div>
 
               {/* Clock + time */}
-              <div className="flex items-center gap-2">
-                <div
-                  className="w-10 h-10 rounded-full border-2 flex items-center justify-center"
-                  style={{ borderColor: "#f0b8ce" }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C94B82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-bold text-gray-800 text-base">3 days</div>
-                  <div className="text-gray-400 text-xs">Until launch</div>
+              <div className="flex flex-col gap-1">
+                <p className="text-xs text-gray-400 font-medium">Launching in (WAT)</p>
+                <div className="flex items-center gap-1.5">
+                  {[
+                    { val: timeLeft.days,    label: "Days" },
+                    { val: timeLeft.hours,   label: "Hrs" },
+                    { val: timeLeft.minutes, label: "Min" },
+                    { val: timeLeft.seconds, label: "Sec" },
+                  ].map(({ val, label }, i) => (
+                    <div key={label} className="flex items-center gap-1.5">
+                      <div className="flex flex-col items-center">
+                        <div
+                          className="min-w-[38px] px-2 py-1.5 rounded-xl text-center font-extrabold text-sm text-white shadow-sm"
+                          style={{ background: "#1A7070" }}
+                        >
+                          {String(val).padStart(2, "0")}
+                        </div>
+                        <span className="text-[10px] text-gray-400 mt-0.5">{label}</span>
+                      </div>
+                      {i < 3 && <span className="font-bold text-gray-400 mb-3">:</span>}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
