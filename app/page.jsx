@@ -93,19 +93,15 @@ export default function WaitlistPage() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
         {/* ── Header ─────────────────────────────────────────── */}
         <header className="mb-10">
-          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur px-4 py-2 rounded-full shadow-sm border border-white/50">
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ background: "#1A7070" }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 1.5C12 1.5 13 7.5 16 10.5C19 13.5 24 12 24 12C24 12 19 12 16 15C13 18 12 23 12 23C12 23 11 18 8 15C5 12 0 12 0 12C0 12 5 13.5 8 10.5C11 7.5 12 1.5 12 1.5Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <span className="font-semibold text-gray-800 text-base">Meal Port</span>
+          <div className="inline-flex items-center bg-white/70 backdrop-blur px-4 py-2 rounded-full shadow-sm border border-white/50">
+            <Image
+              src="/logo.png"
+              alt="Meal Port"
+              width={120}
+              height={33}
+              className="object-contain"
+              priority
+            />
           </div>
         </header>
 
@@ -285,12 +281,21 @@ export default function WaitlistPage() {
             className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 flex flex-col items-center text-center"
             style={{ animation: "scaleIn 0.25s ease-out" }}
           >
+            {/* Logo */}
+            <Image
+              src="/logo.png"
+              alt="Meal Port"
+              width={130}
+              height={36}
+              className="object-contain mb-4"
+            />
+
             {/* Checkmark circle */}
             <div
-              className="w-20 h-20 rounded-full flex items-center justify-center mb-5"
+              className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
               style={{ background: "linear-gradient(135deg, #1A7070, #2aadad)" }}
             >
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
