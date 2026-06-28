@@ -227,44 +227,54 @@ export default function WaitlistPage() {
             </div>
           </div>
 
-          {/* Right – image grid */}
+          {/* Right – 2×2 image grid */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Large top image */}
-            <div className="col-span-2 relative rounded-3xl overflow-hidden h-72 shadow-md">
+            {/* f1 – top left with badge */}
+            <div className="relative rounded-3xl overflow-hidden h-64 shadow-md">
               <Image
-                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
-                alt="Colorful salad bowl"
+                src="/f1.jpeg"
+                alt="Meal Port food"
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
                 priority
               />
-              {/* 50% badge */}
               <div
-                className="absolute top-4 right-4 w-16 h-16 rounded-full flex flex-col items-center justify-center text-white shadow-lg select-none"
+                className="absolute top-3 right-3 w-14 h-14 rounded-full flex flex-col items-center justify-center text-white shadow-lg select-none"
                 style={{ background: "#C94B82" }}
               >
-                <span className="text-[11px] font-extrabold leading-tight">Free</span>
-                <span className="text-[10px] leading-tight font-medium">Delivery</span>
+                <span className="text-[10px] font-extrabold leading-tight">Free</span>
+                <span className="text-[9px] leading-tight font-medium">Delivery</span>
               </div>
             </div>
 
-            {/* Bottom-left */}
-            <div className="relative rounded-3xl overflow-hidden h-52 shadow-md">
+            {/* f2 – top right */}
+            <div className="relative rounded-3xl overflow-hidden h-64 shadow-md">
               <Image
-                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80"
-                alt="Delicious plated meal"
+                src="/f2.jpeg"
+                alt="Meal Port food"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
 
-            {/* Bottom-right */}
-            <div className="relative rounded-3xl overflow-hidden h-52 shadow-md">
+            {/* f3 – bottom left */}
+            <div className="relative rounded-3xl overflow-hidden h-64 shadow-md">
               <Image
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80"
-                alt="Takeout packaging"
+                src="/f3.jpeg"
+                alt="Meal Port food"
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
+              />
+            </div>
+
+            {/* f4 – bottom right */}
+            <div className="relative rounded-3xl overflow-hidden h-64 shadow-md">
+              <Image
+                src="/f4.jpeg"
+                alt="Meal Port food"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
